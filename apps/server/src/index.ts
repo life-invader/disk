@@ -1,6 +1,3 @@
-import { startApp } from './app/app.js'
-import { env } from "./config/env.js"
+import { startApp } from '@/app/app.js'
 
 startApp()
-
-console.log(env.PORT)
