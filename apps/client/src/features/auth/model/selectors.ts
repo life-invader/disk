@@ -1,3 +1,3 @@
-import type { IAuthState } from "./authSlice"
+import type { RootState } from "@shared/types/store";
 
-export const selectIsAuth = (state: IAuthState) => state.isAuth;
+export const selectIsAuth = (state: RootState) => state.auth.isAuth;
