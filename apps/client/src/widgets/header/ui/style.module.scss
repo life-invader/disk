@@ -1,3 +1,26 @@
 .header {
   background-color: #fff;
+  padding: 8px 0;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__logoWrapper {
+    line-height: 1;
+  }
+
+  &__btnList {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
 }

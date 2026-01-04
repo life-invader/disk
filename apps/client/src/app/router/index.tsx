@@ -5,6 +5,7 @@ import { routes } from './routes';
 import { RequireAuth } from './guards';
 
 const LoginPage = lazy(() => import('@pages/LoginPage'));
+const RegisterPage = lazy(() => import('@pages/RegisterPage'));
 const ProfilePage = lazy(() => import('@pages/ProfilePage'));
 const HomePage = lazy(() => import('@pages/HomePage'));
 const NotFoundPage = lazy(() => import('@pages/NotFoundPage'));
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: routes.login,
         element: <LoginPage />,
+      },
+      {
+        path: routes.register,
+        element: <RegisterPage />,
       },
       {
         path: routes.profile,
