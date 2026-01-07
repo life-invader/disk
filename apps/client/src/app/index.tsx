@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { StoreProvider } from '@/app/providers/StoreProvider';
 import { RouterProvider } from '@app/providers/RouterProvider';
+import '@shared/config/env'; // Валидация env
 import '@app/style/index.scss';
 
 const container = document.getElementById('root');

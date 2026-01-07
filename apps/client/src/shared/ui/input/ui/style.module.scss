@@ -1,0 +1,32 @@
+.input {
+  &__label {
+    padding-left: 4px;
+    margin-bottom: 4px;
+    font-weight: 700;
+    display: inline-block;
+  }
+
+  &__field {
+    outline: none;
+    border: none;
+    border-bottom: 3px solid #566885;
+    color: #566885;
+    font-size: 18px;
+    line-height: 1.17;
+    font-weight: 700;
+    padding: 0 4px 4px;
+    width: 100%;
+
+    &::placeholder {
+      color: #728bb2;
+      font-size: 18px;
+      line-height: 1.17;
+      font-weight: 700;
+    }
+  }
+
+  &__errorMsg {
+    color: #ff0000;
+    margin-top: 4px;
+  }
+}

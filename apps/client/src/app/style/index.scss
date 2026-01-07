@@ -6,12 +6,18 @@
   box-sizing: border-box;
 }
 
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #e4e1e1;
-  color: #333;
+  color: #566885;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.2;
 }
 
 ul,
@@ -19,8 +25,17 @@ ol {
   list-style: none;
 }
 
-.container {
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 0 20px;
+a {
+  display: inline-flex;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
 }

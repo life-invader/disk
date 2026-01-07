@@ -3,9 +3,9 @@ import { createBrowserRouter } from 'react-router-dom';
 import { Layout } from '@widgets/layout';
 import { routes } from './routes';
 import { RequireAuth } from './guards';
+import { RegisterPage } from '@pages/registerPage';
 
 const LoginPage = lazy(() => import('@pages/LoginPage'));
-const RegisterPage = lazy(() => import('@pages/RegisterPage'));
 const ProfilePage = lazy(() => import('@pages/ProfilePage'));
 const HomePage = lazy(() => import('@pages/HomePage'));
 const NotFoundPage = lazy(() => import('@pages/NotFoundPage'));

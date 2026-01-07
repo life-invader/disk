@@ -1,0 +1,44 @@
+.form {
+  background-color: #fff;
+  padding: 20px 30px;
+  width: 100%;
+  max-width: 540px;
+  border-radius: 24px;
+  display: grid;
+  gap: 24px;
+
+  &__title {
+    font-size: 24px;
+    line-height: 1.18;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  &__body {
+    display: grid;
+    gap: 16px;
+  }
+
+  &__footer {
+    text-align: right;
+  }
+
+  &__btn {
+    background-color: #566885;
+    font-size: 22px;
+    line-height: 1.18;
+    color: #fff;
+    border-radius: 12px;
+    padding: 4px 28px;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: #728bb2;
+      }
+    }
+
+    &:active {
+      background-color: #728bb2;
+    }
+  }
+}

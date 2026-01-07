@@ -43,7 +43,10 @@
       "@pages/*": [
         "./src/pages/*"
       ]
-    }
+    },
+    "types": [
+      "vite/client"
+    ]
   },
   "include": [
     "src"
