@@ -1,9 +1,9 @@
 import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import { Layout } from '@widgets/layout';
-import { routes } from './routes';
-import { RequireAuth } from './guards';
 import { RegisterPage } from '@pages/registerPage';
+import { routes } from '@shared/config/routes';
+import { RequireAuth } from './guards';
 
 const LoginPage = lazy(() => import('@pages/LoginPage'));
 const ProfilePage = lazy(() => import('@pages/ProfilePage'));

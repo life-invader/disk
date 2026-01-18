@@ -1,4 +1,4 @@
-import { useForm, FormProvider, type FieldValues } from 'react-hook-form';
+import { FormProvider, type FieldValues } from 'react-hook-form';
 import { FormBody } from './FormBody';
 import { FormFooter } from './FormFooter';
 import type { FormProps } from '../model/types';
@@ -7,20 +7,22 @@ import style from './style.module.scss';
 export const Form = <T extends FieldValues>({
   children,
   onSubmit,
-  options,
+  methods,
   submitBtnLabel,
+  isLoading = false,
+  errorMsg,
 }: FormProps<T>) => {
-  const methods = useForm(options);
-
   return (
     <FormProvider {...methods}>
       <form className={style.form} onSubmit={methods.handleSubmit(onSubmit)}>
         <h2 className={style.form__title}>{submitBtnLabel}</h2>
 
-        {children}
+        <fieldset disabled={isLoading}>{children}</fieldset>
+
+        {errorMsg && <p>{errorMsg}</p>}
 
         <div className={style.form__footer}>
-          <button type="submit" className={style.form__btn}>
+          <button type="submit" className={style.form__btn} disabled={isLoading}>
             {submitBtnLabel}
           </button>
         </div>

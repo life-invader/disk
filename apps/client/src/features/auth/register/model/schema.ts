@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const loginSchema = z.object({
+export const registerSchema = z.object({
   name: z
     .string("Введите имя")
     .trim()
@@ -13,7 +13,8 @@ export const loginSchema = z.object({
     .email('Некорректный email'),
   password: z
     .string()
-    .min(6, 'Минимум 6 символов'),
+    .min(8, 'Минимум 8 символов')
+    .max(16, "Пароль должен быть не длиннее 16 символов"),
 })
 
-export type LoginFormValues = z.infer<typeof loginSchema>
+export type RegisterFormValues = z.infer<typeof registerSchema>

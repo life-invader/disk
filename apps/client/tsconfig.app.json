@@ -21,6 +21,9 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
     "paths": {
       "@/*": [
         "./src/*"

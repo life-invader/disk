@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router-dom';
-import { routes } from './routes';
 import { useAuth } from '@/entities/auth';
+import { routes } from '@shared/config/routes';
 
 interface IProps {
   children: React.ReactNode;

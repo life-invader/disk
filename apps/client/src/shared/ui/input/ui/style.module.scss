@@ -23,6 +23,10 @@
       line-height: 1.17;
       font-weight: 700;
     }
+
+    &:disabled {
+      opacity: 0.5;
+    }
   }
 
   &__errorMsg {
