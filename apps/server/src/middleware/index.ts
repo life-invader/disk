@@ -1,5 +1,6 @@
 import express from 'express';
-import { errorHandler, AppError } from './errorHandler.js';
+import cors from 'cors';
+import { errorHandler } from './errorHandler.js';
 import { notFoundHandler } from './notFoundHandler.js';
 import { env } from '../config/env.js';
 
@@ -15,7 +16,7 @@ export const setupMiddleware = (app: express.Application) => {
 
   // CORS (базовая настройка, можно расширить)
   app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
     res.header(
       'Access-Control-Allow-Headers',
       'Origin, X-Requested-With, Content-Type, Accept, Authorization'

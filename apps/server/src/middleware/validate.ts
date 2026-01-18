@@ -11,9 +11,20 @@ export const validate =
       });
 
       if (!result.success) {
+        const fieldErrors: Record<string, string> = {};
+
+        result.error.issues.forEach((issue) => {
+          const fieldName = issue.path.at(-1);
+
+          if (typeof fieldName === 'string') {
+            fieldErrors[fieldName] = issue.message;
+          }
+        });
+
         return res.status(400).json({
-          message: "Validation error",
-          errors: result.error.issues,
+          isSuccess: false,
+          message: "Некорректные данные",
+          fieldErrors,
         });
       }
 
