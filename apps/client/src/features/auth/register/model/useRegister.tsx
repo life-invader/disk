@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { registerApi } from '../api';
+import { registerApiSchema } from './apiSchema';
 import type { RegisterFormValues } from './schema';
 import type { IRegisterApiError, RegisterResult } from './types';
 
@@ -13,7 +14,8 @@ export const useRegister = () => {
       setIsLoading(true);
       setError(null);
 
-      const response = await registerApi(data);
+      const payload = registerApiSchema.parse(data);
+      const response = await registerApi(payload);
 
       return response.data;
     } catch (err) {

@@ -51,6 +51,13 @@ export const RegisterForm = ({ onSuccess, onError }: IRegisterFormProps) => {
           name="password"
           placeholder="Введите пароль..."
           autoComplete="new-password"
+          type="password"
+        />
+        <FormInput<RegisterFormValues>
+          name="passwordConfirm"
+          placeholder="Повторите пароль..."
+          autoComplete="new-password"
+          type="password"
         />
       </Form.Body>
     </Form>

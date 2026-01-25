@@ -19,7 +19,7 @@ export const Form = <T extends FieldValues>({
 
         <fieldset disabled={isLoading}>{children}</fieldset>
 
-        {errorMsg && <p>{errorMsg}</p>}
+        {errorMsg && <p className={style.form__error}>{errorMsg}</p>}
 
         <div className={style.form__footer}>
           <button type="submit" className={style.form__btn} disabled={isLoading}>
