@@ -13,6 +13,7 @@ export const notFoundHandler = (
     `Route ${req.originalUrl} not found`,
     404
   );
+
   next(error);
 };
 

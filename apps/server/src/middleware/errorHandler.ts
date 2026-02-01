@@ -37,11 +37,10 @@ export const errorHandler = (
   next: NextFunction
 ) => {
   const statusCode = err.statusCode ?? 500;
-  const status = err.status ?? 'error';
   const message = err.message ?? 'Internal Server Error';
 
   res.status(statusCode).json({
-    status,
+    isSuccess: false,
     message,
     ...(process.env.NODE_ENV === 'development' && { stack: err.stack }),
   });
