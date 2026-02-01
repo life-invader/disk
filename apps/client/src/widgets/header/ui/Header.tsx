@@ -1,9 +1,12 @@
 import { Link, NavLink, type NavLinkRenderProps } from 'react-router';
-import clsx from 'clsx';
 import { Icon } from '@shared/ui/icon';
+import { useAppSelector } from '@/shared/lib/storeHooks';
+import { selectIsAuthenticated } from '@/entities/session';
+import clsx from 'clsx';
 import styles from './style.module.scss';
 
 export const Header = () => {
+  const isAuth = useAppSelector(selectIsAuthenticated);
   const activeClassName = ({ isActive }: NavLinkRenderProps) =>
     clsx(styles.header__link, isActive && styles.isActive);
 
@@ -24,17 +27,27 @@ export const Header = () => {
           </div>
 
           <ul className={styles.header__btnList}>
-            <li>
-              <NavLink to={'login'} className={activeClassName}>
-                Войти
-              </NavLink>
-            </li>
+            {isAuth ? (
+              <li>
+                <NavLink to={'register'} className={activeClassName}>
+                  Выход
+                </NavLink>
+              </li>
+            ) : (
+              <>
+                <li>
+                  <NavLink to={'login'} className={activeClassName}>
+                    Войти
+                  </NavLink>
+                </li>
 
-            <li>
-              <NavLink to={'register'} className={activeClassName}>
-                Регистрация
-              </NavLink>
-            </li>
+                <li>
+                  <NavLink to={'register'} className={activeClassName}>
+                    Регистрация
+                  </NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>

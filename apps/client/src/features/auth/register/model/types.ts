@@ -1,3 +1,4 @@
+import type { IUser } from "@/entities/session";
 import type { RegisterFormValues } from "./schema";
 
 export interface IRegisterFormProps {
@@ -9,6 +10,9 @@ type IFieldErrors = Partial<RegisterFormValues>;
 
 export interface IRegisterApiSuccess {
   isSuccess: true;
+  data: {
+    user: IUser
+  }
 }
 
 export interface IRegisterApiError {
