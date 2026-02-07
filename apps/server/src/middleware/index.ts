@@ -15,11 +15,13 @@ export const setupMiddleware = (app: express.Application) => {
   // Парсинг URL-encoded данных
   app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
+  // CORS
   app.use(cors({
     origin: 'http://localhost:5173',
     credentials: true, // Разрешает принимать куки от фронтенда
   }));
 
+  // Куки
   app.use(cookieParser())
 
   // Логирование запросов (базовое)

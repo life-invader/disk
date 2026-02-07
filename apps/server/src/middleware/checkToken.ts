@@ -6,13 +6,20 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
   const { token } = req.cookies;
 
   if (!token) {
-    return res.status(401).json({ isSuccess: false, message: 'Не авторизован' });
+    return res.status(401).json({
+      isSuccess: false,
+      message: 'Не авторизован',
+    });
   }
 
   try {
-    req.user = jwt.verify(token, env.JWT_SECRET);
+    const decoded = jwt.verify(token, env.JWT_SECRET);
+    req.user = decoded;
     next();
   } catch (e) {
-    res.status(401).send('Invalid token');
+    res.status(401).json({
+      isSuccess: false,
+      message: 'Не авторизован',
+    });
   }
 };

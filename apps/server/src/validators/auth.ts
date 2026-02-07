@@ -16,3 +16,10 @@ export const registerSchema = z.object({
       .max(16, "Пароль должен быть не длиннее 16 символов"),
   }),
 });
+
+export const loginSchema = z.object({
+  body: z.object({
+    email: z.email("Некорректный email"),
+    password: z.string("Password required"),
+  }),
+});

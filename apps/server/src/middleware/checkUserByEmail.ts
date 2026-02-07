@@ -11,6 +11,7 @@ export const checkUserByEmail = async (
 
     if (!email) {
       return res.status(400).json({
+        isSuccess: false,
         message: 'Email is required',
       })
     }
