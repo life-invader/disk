@@ -6,6 +6,7 @@ import type { ISessionState, IUser } from "./types";
 const initialState: ISessionState = {
   isAuthenticated: false,
   isLoading: false,
+  isInited: false,
   user: null,
 };
 
@@ -32,18 +33,21 @@ export const sessionSlice = createSlice({
       state.user = payload;
       state.isAuthenticated = true;
       state.isLoading = false;
+      state.isInited = true;
     });
 
     builder.addCase(initSession.rejected, (state) => {
-      state.isLoading = false
+      state.isLoading = false;
+      state.isInited = true;
     });
   },
   selectors: {
     selectIsAuthenticated: (state) => state.isAuthenticated,
     selectUser: (state) => state.user,
+    selectIsInited: (state) => state.isInited,
   }
 });
 
 export const { setUser } = sessionSlice.actions
-export const { selectIsAuthenticated, selectUser } = sessionSlice.selectors;
+export const { selectIsAuthenticated, selectUser, selectIsInited } = sessionSlice.selectors;
 export default sessionSlice.reducer

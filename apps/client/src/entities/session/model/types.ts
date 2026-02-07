@@ -10,5 +10,6 @@ export interface IUser {
 export type ISessionState = {
   isAuthenticated: boolean;
   isLoading: boolean;
+  isInited: boolean;
   user: IUser | null;
 };

@@ -1,6 +1,7 @@
 import { FormProvider, type FieldValues } from 'react-hook-form';
 import { FormBody } from './FormBody';
 import { FormFooter } from './FormFooter';
+import { Button } from '@shared/ui/button';
 import type { FormProps } from '../model/types';
 import style from './style.module.scss';
 
@@ -22,9 +23,7 @@ export const Form = <T extends FieldValues>({
         {errorMsg && <p className={style.form__error}>{errorMsg}</p>}
 
         <div className={style.form__footer}>
-          <button type="submit" className={style.form__btn} disabled={isLoading}>
-            {submitBtnLabel}
-          </button>
+          <Button attrs={{ type: 'submit', disabled: isLoading }}>{submitBtnLabel}</Button>
         </div>
       </form>
     </FormProvider>

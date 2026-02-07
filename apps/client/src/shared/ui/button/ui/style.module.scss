@@ -1,0 +1,23 @@
+.button {
+  background-color: #566885;
+  font-size: 22px;
+  line-height: 1.18;
+  color: #fff;
+  border-radius: 12px;
+  padding: 4px 28px;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: #728bb2;
+    }
+
+    &:disabled {
+      background-color: #566885;
+      opacity: 0.5;
+    }
+  }
+
+  &:active {
+    background-color: #728bb2;
+  }
+}
