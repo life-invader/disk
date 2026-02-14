@@ -1,7 +1,9 @@
 import { Link, NavLink, type NavLinkRenderProps } from 'react-router';
 import { Icon } from '@shared/ui/icon';
+import { LogoutBtn } from '@/features/auth/logout';
 import { useAppSelector } from '@/shared/lib/storeHooks';
 import { selectIsAuthenticated, selectIsInited } from '@/entities/session';
+import { routes } from '@/shared/config/routes';
 import clsx from 'clsx';
 import styles from './style.module.scss';
 
@@ -17,7 +19,7 @@ export const Header = () => {
         <div className={styles.header__inner}>
           <div className={styles.header__brand}>
             <div className={styles.header__logoWrapper}>
-              <Link to={'/'}>
+              <Link to={routes.home}>
                 <Icon name="logo" />
               </Link>
             </div>
@@ -31,18 +33,18 @@ export const Header = () => {
             <ul className={styles.header__btnList}>
               {isAuth ? (
                 <li>
-                  <button>Выход</button>
+                  <LogoutBtn text="Выход" />
                 </li>
               ) : (
                 <>
                   <li>
-                    <NavLink to={'login'} className={activeClassName}>
+                    <NavLink to={routes.login} className={activeClassName}>
                       Войти
                     </NavLink>
                   </li>
 
                   <li>
-                    <NavLink to={'register'} className={activeClassName}>
+                    <NavLink to={routes.register} className={activeClassName}>
                       Регистрация
                     </NavLink>
                   </li>

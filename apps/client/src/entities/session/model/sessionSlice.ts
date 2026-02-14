@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { initSession } from "./services/initSession";
+import { logout } from "@/features/auth/logout/model/logoutService";
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { ISessionState, IUser } from "./types";
 
@@ -40,6 +41,11 @@ export const sessionSlice = createSlice({
       state.isLoading = false;
       state.isInited = true;
     });
+
+    builder.addCase(logout.fulfilled, (state) => {
+      state.isAuthenticated = false;
+      state.user = null;
+    })
   },
   selectors: {
     selectIsAuthenticated: (state) => state.isAuthenticated,
