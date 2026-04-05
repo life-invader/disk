@@ -5,6 +5,8 @@ import { registerSchema } from "@/validators/auth.js";
 import { env } from "@/config/env.js";
 import type { Request, Response } from "express";
 import type z from "zod";
+import { fileService } from "@/services/fileService.js";
+import { FileModel } from "@/models/File.js";
 
 type RegisterBodyType = z.infer<typeof registerSchema>["body"];
 
@@ -22,9 +24,10 @@ export const register = async (req: Request<{}, {}, RegisterBodyType>, res: Resp
     res.cookie("token", token, { httpOnly: true, secure: env.NODE_ENV === "production", sameSite: "strict", maxAge: 3600000 });
 
     await newUser.save();
+    await fileService.createDir(new FileModel({ user: newUser.id, name: "" }));
     res.status(201).json({ isSuccess: true, data: { user: newUser } });
   } catch (error) {
-    res.status(500).json({ isSuccess: false, message: "Ошибка сервера" });
+    res.status(500).json({ isSuccess: false, message: "Ошибка сервера", error });
   }
 }
 

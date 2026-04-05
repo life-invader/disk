@@ -1,5 +1,6 @@
 import express from 'express';
 import { authRouter } from './auth.js';
+import { fileRouter } from './file.js';
 import type { Router } from 'express';
 
 const appRouter: Router = express.Router();
@@ -15,5 +16,6 @@ appRouter.get('/', (_req, res) => {
  * Подключение роутов модулей
  */
 appRouter.use('/auth', authRouter);
+appRouter.use('/file', fileRouter);
 
 export default appRouter;
